@@ -8,12 +8,12 @@ pipeline {
   stages {
     stage('Status') {
       steps {
-        sh 'liquibase status --url="jdbc:postgres://192.168.99.120:5432/jk_test" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
+        sh 'liquibase status --url="jdbc:postgresql://192.168.99.120:5432/jk_test" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
       }
     }
     stage('Update') {
       steps {
-        sh 'liquibase update --url="jdbc:postgres://192.168.99.120:5432/jk_test" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
+        sh 'liquibase update --url="jdbc:postgresql://192.168.99.120:5432/jk_test" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
       }
     }
   }
